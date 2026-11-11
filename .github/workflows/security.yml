@@ -1,0 +1,33 @@
+
+name: Docker Security Scan
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  security:
+    name: Build and Scan Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t lab7-secure -f Dockerfile.secure .
+
+      - name: Scan Docker Image
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: lab7-secure
+          format: table
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: os,library
+          severity: CRITICAL

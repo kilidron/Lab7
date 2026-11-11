@@ -1,0 +1,10 @@
+
+{
+  "name": "lab7-security-server",
+  "version": "1.0.0",
+  "description": "CI/CD security laboratory work",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  }
+}
