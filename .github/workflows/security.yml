@@ -25,6 +25,7 @@ jobs:
       - name: Scan Docker Image
         uses: aquasecurity/trivy-action@v0.33.1
         with:
+          version: v0.76.2
           image-ref: lab7-secure
           format: table
           exit-code: '1'
