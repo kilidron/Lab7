@@ -23,7 +23,7 @@ jobs:
         run: docker build -t lab7-secure -f Dockerfile.secure .
 
       - name: Scan Docker Image
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@v0.33.1
         with:
           image-ref: lab7-secure
           format: table
